@@ -2,14 +2,14 @@ import { useCallback, useMemo, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [input, setInput] = useState('');
+  const [text, setText] = useState('');
 
   const isNumber = useMemo(()=>{
-    return !isNaN(Number(input))
-  },[input])
+    return !isNaN(Number(text))
+  },[text])
 
   const handleInput = useCallback((e)=>{
-    setInput(e.target.value)
+    setText(e.target.value)
   },[])
   return (
     <div className="App">
@@ -18,10 +18,10 @@ function App() {
           className="input is-large"
           type="text"
           placeholder="Enter number..."
-          onInput={handleInput}
+          onChange={handleInput}
         />
         <span className="icon is-small is-right">
-          {input && (isNumber?<i className="fas fa-check" />:<i className="fas fa-times" />)}
+          {text && (isNumber?<i className="fas fa-check" />:<i className="fas fa-times" />)}
         </span> 
       </div>
     </div>
