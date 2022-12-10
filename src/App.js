@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [text, setText] = useState('');
+  const [text, setText] = useState('a');
 
   const isNumber = useMemo(()=>{
     return !isNaN(Number(text))
@@ -21,7 +21,7 @@ function App() {
           onChange={handleInput}
         />
         <span className="icon is-small is-right">
-          {text && (isNumber?<i className="fas fa-check" />:<i className="fas fa-times" />)}
+          <i className={`fas fa-${isNumber?'check' : 'times'}`} />
         </span> 
       </div>
     </div>
